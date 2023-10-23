@@ -1,0 +1,541 @@
+ <!DOCTYPE html>
+ {% load static %}
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- <link rel="stylesheet" href="style.css" /> -->
+  {% if object_list %}
+  <link rel="stylesheet" href="{% static 'css/came/style3.css'%}" />
+  {% else %}
+  <link rel="stylesheet" href="{% static 'css/came/style3_2.css'%}" />
+  {% endif %}
+  <title>TrusTTravel</title>
+  <!-- <script src="./index.js" defer></script> -->
+  <script type="text/javascript" src="{% static 'js/came/jquery-3.6.1.min.js' %}"></script>
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+  />
+ </head>
+ <body>
+  <script
+  src="https://kit.fontawesome.com/7782b62f54.js"
+  crossorigin="anonymous"
+  ></script>
+  <!-- ХЭДЭР -->
+  <header>
+   <div class="header-inner">
+    <div class="navigation">
+     <div class="logo">
+      <img src="{% static 'images/came/trustTravel2 1.png'%}" alt="" />
+     </div>
+     <div class="text-logo">
+      <img src="{% static 'images/came/trustTravel2 2.png'%}" alt="" />
+     </div>
+     <nav>
+      <ul class="list">
+       <li class="item">
+        <a href="{% url 'home' %}#commp" class="item-link">О нас</a>
+       </li>
+       <li class="item">
+        <a href="{% url 'home' %}#game" class="item-link">Геймификация</a>
+       </li>
+       <li class="item">
+        <a href="{% url 'tours' %}" class="item-link"
+        >Достопримечательности</a
+        >
+       </li>
+      </ul>
+     </nav>
+     <div class="phone">
+      <a href="#"
+      ><button class="authorization">Авторизоваться</button></a
+      >
+     </div>
+    </div>
+         <!-- <div class="welcome">
+           <div class="welcome-inner">
+             <div class="welcome-title">TRUSTTRAVEL</div>
+             <div class="welcome-subtitle">— больше, чем просто ГИД.</div>
+             <a href=""
+               ><button class="primary">
+                 <p>СМОТРЕТЬ ТУРЫ</p>
+               </button></a
+             >
+           </div>
+          </div> -->
+         </div>
+        </header>
+        <section>
+         <div class="container">
+          <div class="carrd">
+           <div class="nz">
+            <div class="podbor">
+
+             {% csrf_token %}
+             <form  method="get">
+
+
+
+              <div class="textik">
+               <p>
+                <b>Фильтры</b>
+                <button class="knop">Сбросить всё</button>
+               </p>
+              </div>
+              <div class="polosa"></div>
+               <!-- <div class="knopka">
+           <button class="knop">сбросить всё</button>
+          </div> -->
+          <div class="filters">
+           <div class="filter">
+
+            <div class="place">
+
+             <p>
+              <b>Место</b>
+             </p>
+             <p>
+              <input
+              type="radio"
+              name="place"
+              value="almaty"
+              />Алматы<br />
+              <input
+              type="radio"
+              name="place"
+              value="astana"
+              />Астана<br />
+              <input
+              type="radio"
+              name="place"
+              value="aktay"
+              />Актау<br />
+              <input
+              type="radio"
+              name="place"
+              value="turkestan"
+              />Туркестан<br />
+             </p>
+
+            </div>
+            <div class="polosa"></div>
+            <div class="type">
+
+             <p>
+              <b>Тип тура</b>
+             </p>
+             <p>
+              <input type="radio" name="type" value="funny" />Отдых и
+              развлечение<br />
+              <input
+              type="radio"
+              name="type"
+              value="history"
+              />Исторический<br />
+              <input
+              type="radio"
+              name="type"
+              value="nature"
+              />Природный<br />
+              <input
+              type="radio"
+              name="type"
+              value="culture"
+              />Культурный<br />
+             </p>
+
+            </div>
+            <div class="polosa"></div>
+            <div class="age">
+
+             <p>
+              <b>Ваш возраст</b>
+             </p>
+             <p>
+              <input type="radio" name="age" value="young"/>Молодой(до 18 лет)<br />
+              <input type="radio" name="age" value="mature" />Зрелый
+              (от 19 до 34)<br />
+              <input type="radio" name="age" value="middile" />Средний
+              (от 35 до 59)<br />
+              <input type="radio" name="age" value="old" />Пожилой
+              (60+)<br />
+             </p>
+
+            </div>
+            <div class="polosa"></div>
+            <div class="age">
+
+             <p>
+              <b>Время до пункта назначения</b>
+             </p>
+             <p>
+              <input type="radio" name="time" value="less30" />До 30
+              минут<br />
+              <input type="radio" name="time" value="less50" />От 30 до
+              50 минут<br />
+              <input type="radio" name="time" value="less90" />От 60 до
+              90 минут<br />
+              <input type="radio" name="time" value="more90" />От 90
+              минут<br />
+             </p>
+
+            </div>
+
+           </div>
+          </div>
+
+          <input type="text" name="page" value="1" style="display: none;" />
+          <button class="knoop" type="submit">Подобрать!</button>
+
+              <!-- Ajax и Paginator в Djngo  не совместимо
+              <script>
+                $(function() {
+                 $('form').submit(function() {
+                   var time = document.querySelector('input[name="time"]:checked').value;
+                   var age = document.querySelector('input[name="age"]:checked').value;
+                   var type = document.querySelector('input[name="type"]:checked').value;
+                   var place = document.querySelector('input[name="place"]:checked').value;
+                   $.ajax({
+                     url: "{% url 'tours_filter' %}"+"?time="+time+"&age="+age+"&type="+type+"&place="+place,
+                     //data: a,
+                     type: "GET",
+                     dataType: "json",
+                     success: (data) => {
+                       const div = document.getElementById('reterned_data');
+                       div.innerHTML = data.text;
+
+
+                       console.log(data.response);
+
+
+                     },
+                     error: (error) => {
+                       console.log(error);
+                     }
+                   });
+                   return false;
+                 });})
+                </script>-->
+
+
+               </form>
+
+
+
+
+
+              </div>
+             </div>
+            </div>
+           </div>
+          </section>
+          {% if object_list %}
+          <main>
+           <div class="container">
+            <div class="tours">
+             <p class="z"><b id="lol">Наши туры </b></p>
+             {% for item in object_list %}
+
+
+             <div class="tour">
+              <div class="tour-img">
+               {% if item.image %}
+               <img src="{{ item.image.url}}" alt="" />
+               {% else %}
+               <img src="{% static 'images/came/nature.jpg'%}" alt="" />
+               {% endif %}
+
+              </div>
+              <div class="name">
+               <p class="ppp"><b>{{item.name}}</b></p>
+               <p class="pp"><b>{{item.price}} тенге</b></p>
+               <p><!--📍 город {{ item.Meta.verbose_name }}--> ㅤ</p>
+               <p>
+                {% if item.description %}
+                {{item.description}}
+                {%else%}
+                |Lorem ipsum dolor sit amet consectetur a <br>
+                |dipisicing elit. Alias culpa laborum odio cumque?
+                {% endif %}
+               </p>
+               <div class="bil">
+                <button class="bbb"><h1>♡</h1></button>
+                <button class="bb">Смотреть</button>
+               </div>
+              </div>
+             </div>
+             {% endfor %}
+
+             <div class="pagination">
+              {% for q in pages.page_range %}
+              <a  href=""
+              id="{{q}}-pagein"
+              onclick="
+              var base_url ='';
+
+              if (window.location.href[window.location.href.length-1]=='#') {
+               for (var i = 0; i < window.location.href.length-2; i++) {
+                base_url = base_url + window.location.href[i];
+               }
+              }else{
+               for (var i = 0; i < window.location.href.length-1; i++) {
+                base_url = base_url + window.location.href[i];
+               }
+              }
+              location.href=base_url+{{ q }};
+
+
+
+              return false;
+
+              ">{{ q }}</a>
+              {% endfor %}
+
+             </div>
+            </div>
+           </div>
+          </main>
+          {% else %}
+              <!-- наши туры -->
+    <section>
+      <div class="slider middle">
+        <div class="slides">
+          <input type="radio" name="r" id="r1" checked />
+          <input type="radio" name="r" id="r2" />
+
+          <div class="slide s1">
+            <div class="container wee">
+              <div class="together">
+                <div class="nashi">
+                  <!-- <h1 class="texxt"><b></b></h1> -->
+                  <div class="toory">
+                    <div class="toory-img">
+                      <img src="{% static 'images/came/mount.jpg'%}" alt="" />
+                    </div>
+
+                    <div class="toory-text">
+                      <h1>Название</h1>
+
+                      <p class="pizza"><b>★★★★★</b></p>
+                      <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Nesciunt, deserunt?
+                      </p>
+                    </div>
+                    <button class="heart">♡</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="container wee">
+              <div class="together">
+                <div class="nashi">
+                  <div class="toory">
+                    <div class="toory-img">
+                      <img src="{% static 'images/came/mount.jpg'%}" alt="" />
+                    </div>
+
+                    <div class="toory-text">
+                      <h1>Название</h1>
+
+                      <p class="pizza"><b>★★★★★</b></p>
+                      <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Nesciunt, deserunt?
+                      </p>
+                    </div>
+                    <button class="heart">♡</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="container wee">
+              <div class="together">
+                <div class="nashi">
+                  <div class="toory">
+                    <div class="toory-img">
+                      <img src="{% static 'images/came/mount.jpg'%}" alt="" />
+                    </div>
+
+                    <div class="toory-text">
+                      <h1>Название</h1>
+
+                      <p class="pizza"><b>★★★★★</b></p>
+                      <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Nesciunt, deserunt?
+                      </p>
+                    </div>
+                    <button class="heart">♡</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="s2">
+            <div class="slide">
+              <div class="container we">
+                <div class="together">
+                  <div class="nashi">
+                    <h1 class="texxt"><b>Наши туры</b></h1>
+                    <div class="toory">
+                      <div class="toory-img">
+                        <img src="{% static 'images/came/nature.jpg'%}" alt="" />
+                      </div>
+
+                      <div class="toory-text">
+                        <h1>Название</h1>
+
+                        <p class="pizza"><b>★★★★★</b></p>
+                        <p>
+                          Lorem, ipsum dolor sit amet consectetur adipisicing
+                          elit. Nesciunt, deserunt?
+                        </p>
+                      </div>
+                      <button class="heart">♡</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="container weee">
+                <div class="together">
+                  <div class="nashi">
+                    <div class="toory">
+                      <div class="toory-img">
+                        <img src="{% static 'images/came/mount.jpg'%}" alt="" />
+                      </div>
+
+                      <div class="toory-text">
+                        <h1>Название</h1>
+
+                        <p class="pizza"><b>★★★★★</b></p>
+                        <p>
+                          Lorem, ipsum dolor sit amet consectetur adipisicing
+                          elit. Nesciunt, deserunt?
+                        </p>
+                      </div>
+                      <button class="heart">♡</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="container weee">
+                <div class="together">
+                  <div class="nashi">
+                    <div class="toory">
+                      <div class="toory-img">
+                        <img src="{% static 'images/came/mount.jpg'%}" alt="" />
+                      </div>
+
+                      <div class="toory-text">
+                        <h1>Название</h1>
+
+                        <p class="pizza"><b>★★★★★</b></p>
+                        <p>
+                          Lorem, ipsum dolor sit amet consectetur adipisicing
+                          elit. Nesciunt, deserunt?
+                        </p>
+                      </div>
+                      <button class="heart">♡</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="slideres-photo">
+          <img src="{% static 'images/came/54517.png'%}" alt="" class="photo-left" />
+          <img src="{% static 'images/came/54517 (1).png'%}" alt="" class="photo-right" />
+        </div>
+        <div class="bar-class">
+          <label for="r1" class="bar r1"></label>
+          <label for="r2" class="bar r2"></label>
+        </div>
+      </div>
+    </section>
+    <!-- main -->
+    <main>
+      <div class="main-wrapper">
+        <div class="main-text"><h1>Лучшие места</h1></div>
+        <div class="main-cont">
+          <div class="main-cards">
+            <div class="main-card">
+              <img src="{% static 'images/came/nature.jpg'%}" alt="" />
+            </div>
+            <div class="main-card">
+              <img src="{% static 'images/came/iceland.avif'%}" alt="" />
+            </div>
+          </div>
+          <div class="main-cards">
+            <div class="main-card">
+              <img src="{% static 'images/came/field.avif'%}" alt="" />
+            </div>
+            <div class="main-card">
+              <img src="{% static 'images/came/beach.avif'%}" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+          {% endif %}
+          <script>
+           function GetURLParameter(sParam){
+            var sPageURL = window.location.search.substring(1);
+            var sURLVariables = sPageURL.split('&');
+            for (var i = 0; i < sURLVariables.length; i++)
+            {
+             var sParameterName = sURLVariables[i].split('=');
+             if (sParameterName[0] == sParam)
+             {
+              return decodeURIComponent(sParameterName[1]);
+             }
+            }
+           }
+           function autofill_filter(){
+
+
+
+            var type = GetURLParameter('type');
+            if (type!=null) {
+             var type_ = $('input:radio[name=type]').filter('[value='+type+']');
+             type_.prop('checked', true);
+            }
+
+            var time = GetURLParameter('time');
+            if (type!=null) {
+             var time_ = $('input:radio[name=time]').filter('[value='+time+']');
+             time_.prop('checked', true);
+            }
+
+            var age = GetURLParameter('age');
+            if (age!=null) {
+             var age_ = $('input:radio[name=age]').filter('[value='+age+']');
+             age_.prop('checked', true);
+            }
+
+            var place = GetURLParameter('place');
+            if (place!=null) {
+             var place_ = $('input:radio[name=place]').filter('[value='+place+']');
+             place_.prop('checked', true);
+            }
+
+            var page = GetURLParameter('page');
+            if (page!=null) {
+             var element1 = document.getElementById(page+"-pagein");
+             element1.classList.add("active");
+            }
+
+
+           }
+
+           $(document).ready(
+            autofill_filter()
+            );
+           </script>
+          </body>
+          </html>

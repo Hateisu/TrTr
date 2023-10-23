@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static  %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/came/style.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/came/media.css'%}">
+    <title>TrusTTravel</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"  
+    />
+    <script src="https://kit.fontawesome.com/9347f246f6.js" crossorigin="anonymous"></script>
+    <style type="text/css">
+      header {
+  position: relative;
+  background: url("{% static 'images/came/пузико.png'%}") no-repeat center top / cover;
+}
+    </style>
+  </head>
+  <body>
+   <script src="{% static 'js/came/jquery-3.6.1.min.js'%}"></script>
+
+    <!-- ХЭДЭР -->
+    <header>
+      <div class="header-inner">
+        <div class="navigation">
+          <div class="logo">
+            <img src="{% static 'images/came/trustTravel2 1.png'%}" alt="" />
+          </div>
+          <div class="text-logo">
+            <img src="{% static 'images/came/trustTravel2 2.png'%}" alt="" />
+          </div>
+          <nav>
+            <ul class="list">
+              <li class="item"><a href="#commp" class="item-link">О нас</a></li>
+              <li class="item">
+                <a href="#game" class="item-link">Геймификация</a>
+              </li>
+              <li class="item">
+                <a href="{% url 'tours' %}" class="item-link">Достопримечательности</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="phone">
+            <a href="#"
+              ><button class="authorization">Авторизоваться</button></a
+            >
+          </div>
+        </div>
+          <section class="top-nav">
+           <div class="ourlogo">
+            <div class="logo">
+              <img src="{% static 'images/came/trustTravel2 1.png'%}" alt="" />
+            </div>
+            <div class="text-logo">
+              <img src="{% static 'images/came/trustTravel2 2.png'%}" alt="" />
+            </div>
+           </div>
+            <div class="phone">
+              <a href="#"
+                ><button class="authorization">Авторизоваться</button></a
+              >
+            </div>
+            <input id="menu-toggle" type="checkbox" />
+            <label class='menu-button-container' for="menu-toggle">
+            <div class='menu-button'></div>
+          </label>
+            <ul class="menu">
+              <li><a href="#commp" class="item-link">О нас</a></li>
+              <li><a href="#game" class="item-link">Геймификация</a></li>
+              <li><a href="{% url 'tours' %}" class="item-link">Достопримечательности</a></li>
+
+            </ul>
+          </section>
+        <div class="welcome">
+          <div class="welcome-inner">
+            <div class="welcome-title">TRUSTTRAVEL</div>
+            <div class="welcome-subtitle">— больше, чем просто ГИД.</div>
+            <a href=""
+              ><button class="primary">
+                <a href="{% url 'tours' %}"><p>СМОТРЕТЬ ТУРЫ</p></a>
+              </button></a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- О НАШЕЙ КОМПАНИИ -->
+    <section id="commp">
+    <div class="aboutcompany">
+      <div style="padding: 0 0 75px 0;" class="container">
+        <h1 class="h1">О нашей компании</h1>
+        <div class="aboutCompanyContent">
+          <div class="vahui">
+            <div
+              style="
+                --swiper-navigation-color: #fff;
+                --swiper-pagination-color: #fff;
+              "
+              class="swiper mySwiper2 first-row"
+            >
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="https://tengritravel.kz/userdata/news/2018/news_342441/thumb_m/photo_246517.jpg"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="https://tengrinews.kz/userdata/news/2021/news_439415/thumb_m/photo_363656.jpeg"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="https://tengritravel.kz/userdata/news/2018/news_340923/thumb_m/photo_244617.jpg"
+                  />
+                </div>
+              </div>
+            </div>
+            <div thumbsSlider="" class="swiper mySwiper second-row">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="https://tengritravel.kz/userdata/news/2018/news_342441/thumb_m/photo_246517.jpg"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="https://tengrinews.kz/userdata/news/2021/news_439415/thumb_m/photo_363656.jpeg"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="https://tengritravel.kz/userdata/news/2018/news_340923/thumb_m/photo_244617.jpg"
+                  />
+                </div>
+              </div>
+              <div class="swiper-button swiper-button-next"></div>
+              <div class="swiper-button swiper-button-prev"></div>
+              <div
+                class="mySwiperScrollbar swiper-scrollbar swiper-scrollbar-horizontal"
+                style="transition-duration: 400ms; text-align: center"
+              >
+                <div class="my-swiper-scroll-drag swiper-scrollbar-drag"></div>
+              </div>
+            </div>
+          </div>
+          <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+          <script>
+            var swiper = new Swiper(".mySwiper", {
+              spaceBetween: 15,
+              slidesPerView: 3,
+              freeMode: true,
+              watchSlidesProgress: true,
+            });
+            var swiper2 = new Swiper(".mySwiper2", {
+              spaceBetween: 10,
+              navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+              },
+              thumbs: {
+                swiper: swiper,
+              },
+              scrollbar: {
+                el: ".swiper-scrollbar",
+                draggable: true,
+              },
+            });
+          </script>
+          <div class="abcomptext">
+            <p class="paragr fparagr">
+              TrusTTravel - это инновационная геймифицированная платформа
+              туризма и путешествий.
+            </p>
+            <ul>
+              <li class="paragr z sparagr">
+                Путешествуй с комфортом и зарабатывай <br> вместе с друзьями.
+              </li>
+              <li class="paragr z tparagr">
+                Получай актуальные туры на твой вкус и <br> предпочтения за 1 минуту
+              </li>
+              <li class="paragr z chparagr">
+                Соревнуйся с друзьями и получай <br> активные бонусы
+              </li>
+            </ul>
+            <a href="{% url 'tours' %}"
+              ><button  class="primary">
+                СМОТРЕТЬ ТУРЫ
+              </button></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+    <!-- НАШИ ПРЕИМУЩЕСТВА -->
+    <section>
+      <div style="padding: 0 0 75px 0;" class="container">
+        <div class="place">
+          <div class="advantages">
+            <h1 style="font-family: 'Bebas Neue', sans-serif;" class="h1">НАШИ ПРЕИМУЩЕСТВА</h1>
+          </div>
+          <div class="cards-row">
+            <div class="card">
+              <div class="placeImg"><img src="{% static 'images/came/Group 18.png'%}" ></div>
+              <div class="placeText">
+                <p>
+                  <b>Двойной вид заработка</b> внутренней валюты геймифицированным
+                  способом на нашей платформе
+                </p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="placeImg"><img src="{% static 'images/came/wepik-photo-mode-20221012-225553 1.png'%}" alt=""></div>
+              <div class="placeText">
+                <p>
+                  Просматривайте <b>любой тур</b> по вашему выбору и<b> получайте всю
+                  информацию</b>по туру/достопримечательности
+                </p>
+              </div>
+            </div>
+            <div class="card">
+              <div style="margin-bottom:25px" class="placeImg"><img  src="{% static 'images/came/star-user-3d-icon-model-cartoon-style-concept-render-illustration_516938-2187 1.png'%}" alt=""></div>
+              <div class="placeText">
+                <p>
+                  Решаем <b>проблему скучного туризма</b> и <b>объединяем людей</b> по общим
+                  интересам
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ГЕЙМИФИКАЦИЯ -->
+    <section id="game">
+      <div class="game-inner">
+        <div class="game-title">
+          <h1 class="h1">
+            ГЕЙМИФИКАЦИЯ
+          </h1>
+        </div>
+        <div
+          style="text-align: center;"
+          class="welcome-subtitle"
+        >
+          <p>и как это происходит?</p>
+        </div>
+        <div class="game-container">
+          <div class="text-1">
+            <div
+              style="text-align: right; margin-left: 100px; width: 210px"
+              class="text-element"
+            >
+              <p >Находите любое достижение на выбор</p>
+            </div>
+
+            <div
+              style="text-align: right; margin-left: 75px; padding-bottom: 20px"
+              class="text-element"
+            >
+              <p>Выбираете его, выполняете задания по инструкции</p>
+            </div>
+
+            <div
+              style="text-align: right; margin-left: 70px; width: 240px"
+              class="text-element"
+            >
+              <p>Сдаёте свою достижение и получаете монеты</p>
+            </div>
+          </div>
+          <div class="circle">
+            <div class="circle-1">
+              <div class="circle-2"><img src="{% static 'images/came/Group 17.png'%}" alt=""></div>
+            </div>
+            <div class="point-1"></div>
+            <div class="point-2"></div>
+            <div class="point-3"></div>
+            <div class="point-4"></div>
+            <div class="point-5"></div>
+            <div class="point-6"></div>
+          </div>
+          <div class="text-2">
+            <div
+              style="text-align: left; margin-right: 80px"
+              class="text-element"
+            >
+              <p style="margin-left: -35px;">Находите задание на ваш выбор</p>
+            </div>
+
+            <div
+              style="text-align: left; margin-left: 15px; padding-bottom: 20px"
+              class="text-element"
+            >
+              <p>Выполняете задание по инструкции, данной только вам</p>
+            </div>
+
+            <div
+              style="text-align: left; margin-right: 25px; width: 253px"
+              class="text-element"
+            >
+              <p style="margin-left: -25px;">Достигаете N кол-во шагов и получаете монеты</p>
+            </div>
+          </div>
+          <div class="mob-text">
+            <div class="mob-number">
+              01
+            </div>
+            <div class="mob-desc">
+              <p>Находите любое достижение на выбор, выбираете его 
+                и выполняете задания 
+                по инструкции. Далее сдаёте свое достижение и получаете монеты.</p>
+            </div>
+          </div>
+          <div class="mob-text">
+            <div class="mob-number">
+              02
+            </div>
+            <div class="mob-desc">
+              <p>Находите задание на ваш выбор, выполняете его 
+                по инструкции, данной только вам. Достигаете N количество шагов 
+                и получаете монеты.</p>
+            </div>
+          </div>
+        </div>
+        <div class="shop">
+          <div class="shop-inner">
+            <div class="shop-row">
+              <img
+                src="{% static 'images/came/Group 14.png'%}"
+                alt=""
+                class="shop-img"
+              />
+              <div class="shop-text">
+                <p class="desk-p">
+                  После получения на ваш счет внутренней валюты, <br />
+                  вы <b>можете потратить их во внутреннем магазине</b>
+                </p>
+                <p class="mob-p">
+                  После получения на ваш счет внут-<br>ренней валюты,
+                  вы <br> <b>можете потратить их во внутреннем магазине</b>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="system">
+      <div class="system-inner">
+        <div class="system-title">
+          <h1 class="h1">СИСТЕМА ПОДБОРА ТУРОВ</h1>
+        </div>
+        <div class="system-row">
+          <img
+            src="{% static 'images/came/iPad_07 1.png'%}"
+            alt=""
+            class="system-img"
+          />
+          <div class="system-column">
+            <div class="system-text">
+              Команда «TrusTTravel» разработала
+              <b
+                >систему подбора туров индивидуально для каждого пользователя</b
+              >
+              , переходите по кнопке и полу-чайте свой уникальный тур всего за
+              пару минут
+            </div>
+            <a href="{% url 'tours' %}"
+              ><button style="margin-top: 25px;" class="primary">
+                СМОТРЕТЬ ТУРЫ
+              </button></a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="team">
+      <div class="team-inner">
+        <div class="team-title">
+          <h1 class="h1">НАША КОМАНДА</h1>
+        </div>
+        <div class="row-1">
+          <div class="member 1">
+            <img src="{% static 'images/came/IMG_4984 1.png'%}" alt="">
+            <div class="name">
+              <h4>Алихан</h4>
+              <p>CEO & Founder</p>
+            </div>
+          </div>
+          <div class="member 2">
+            <img src="{% static 'images/came/IMG_3069 1.png'%}" alt="">
+            <div class="name">
+              <h4>Данияр</h4>
+              <p>Co-Founder</p>
+            </div>
+          </div>
+          <div class="member 3">
+            <img src="{% static 'images/came/IMG_4953 1.png'%}" alt="">
+            <div class="name">
+              <h4>Алина</h4>
+              <p>Chief Designer</p>
+            </div>
+          </div>
+          <div class="member 4">
+            <img src="{% static 'images/came/IMG_7443 1.png'%}" alt="">
+            <div class="name">
+              <h4>Ратмир</h4>
+              <p>Marketer</p>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row-2">
+          <div class="member 5">
+            <img src="{% static 'images/came/IMG_7426 1.png'%}" alt="">
+            <div class="name">
+              <h4>Рамилям</h4>
+              <p>Front-end Developer</p>
+            </div>
+          </div>
+          <div class="member 6">
+            <img src="{% static 'images/came/photo_5467799346029380178_y 1.png'%}" alt="">
+            <div class="name">
+              <h4>Тимур</h4>
+              <p>Back-end Developer</p>
+            </div>
+          </div>
+          <div class="member 7">
+            <img src="{% static 'images/came/IMG_7792 1.png'%}" alt="">
+            <div class="name">
+              <h4>Фабиана</h4>
+              <p>UI/UX Designer</p>
+            </div>
+          </div>
+          <div class="member 8">
+            <img src="{% static 'images/came/IMG_1975 1.png'%}" alt="">
+            <div class="name">
+              <h4>Аблай</h4>
+              <p>Бизнес аналитик</p>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row-3">
+          <div class="member 9">
+            <img src="{% static 'images/came/IMG_8036 1.png'%}" alt="">
+            <div class="name">
+              <h4>Артур</h4>
+              <p>UI/UX Designer</p>
+            </div>
+          </div>
+          <div class="member 10">
+            <img src="{% static 'images/came/IMG_8021 1.png'%}" alt="">
+            <div class="name">
+              <h4>Николь</h4>
+              <p>SMM Designer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="app">
+      <div class="app-inner">
+        <div class="app-row">
+          <div class="app-text">
+            <div class="app-title desktop">
+              <p>
+                Скачай мобильное <br />
+                приложение и получай бонусы
+              </p>
+            </div>
+            <div class="app-subtitle desktop">
+              TrusTTravel - больше, чем просто гид.
+            </div>
+            <div class="app-title mobile">
+              <p>
+                Скачай мобиль- <br>ное приложение
+              </p>
+            </div>
+            <div class="app-subtitle mobile">
+              и получай бонусы
+            </div>
+            <div class="buttons-row">
+              <a href=""
+                ><button class="btn-1">
+                  <i class="fa-brands fa-apple"></i>APP STORE
+                </button></a
+              >
+              <a href=""
+                ><button class="btn-2">
+                  <i class="fa-brands fa-google-play"></i>GOOGLE PLAY
+                </button></a
+              >
+            </div>
+          </div>
+            <img src="{% static 'images/came/Rectangle (1).png'%}" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <section class="partners">
+      <div class="partners-inner">
+        <div class="partners-title">
+          <h1 class="h1">НАШИ ПАРТНЕРЫ</h1>
+        </div>
+        <div class="row">
+          <div class="row-first">
+            <div style="border-bottom: none" class="part">
+              <img src="{% static 'images/came/image 8.png'%}" alt="">
+            </div>
+            <div style="border-bottom: none" class="part">
+              <img src="{% static 'images/came/image 8.png'%}" alt="">
+            </div>
+            <di style="border-right: none; border-bottom: none"
+              class="part"
+            >
+            <img src="{% static 'images/came/image 8.png'%}" alt="">
+            </div>
+          <div class="row-second">
+            <div style="border-bottom: none" class="part">
+              <img src="{% static 'images/came/image 8.png'%}" alt="">
+            </div>
+            <div style="border-bottom: none" class="part">
+              <img src="{% static 'images/came/image 8.png'%}" alt="">
+            </div>
+            <div
+              style="border-right: none; border-bottom: none"
+              class="part"
+            >
+            <img src="{% static 'images/came/image 8.png'%}" alt="">
+            </div>
+          </div>
+          <div class="row-third">
+            <div  class="part"><img src="{% static 'images/came/image 8.png'%}" alt=""></div>
+            <div  class="part"><img src="{% static 'images/came/image 8.png'%}" alt=""></div>
+            <div style="border-right: none" class="part">
+              <img src="{% static 'images/came/image 8.png'%}" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="row mob">
+          <div class="row-first mob">
+            <div style="border-bottom: none" class="part">
+              <img src="{% static 'images/came/image 8.png'%}" alt="">
+            </div>
+            <div style="border-bottom: none; border-right: none;" class="part">
+              <img src="{% static 'images/came/image 8.png'%}" alt="">
+            </div>
+          </div>
+          <div class="row-second mob">
+            <div style="border-bottom: none" class="part">
+              <img src="{% static 'images/came/image 8.png'%}" alt="">
+            </div>
+            <div style="border-bottom: none; border-right: none;" class="part">
+              <img src="{% static 'images/came/image 8.png'%}" alt="">
+            </div>
+          </div>
+          <div class="row-third mob">
+            <div class="part"><img src="{% static 'images/came/image 8.png'%}" alt=""></div>
+            <div style="border-right: none" class="part"><img src="{% static 'images/came/image 8.png'%}" alt=""></div>
+          </div>
+        </div>
+       </div>
+      </div>
+    </section>
+    <section class="ask">
+      <div class="ask-inner">
+        <div class="ask-title">
+          <h1 class="h1">ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ</h1>
+        </div>
+        <button type="button" class="collapsible">Что можно приобрести во внутреннем магазине?</button>
+<div class="content">
+  <p>С помощью накопленных монет вы можете приобрести различные купоны, скидки <br> и сертификаты в различные заведения. Также сможете купить «аватары» и скины,<br> которые способствуют более высокому заработку со своими преимуществами.</p>
+</div>
+<hr>
+<button type="button" class="collapsible">Что такое подбор туров, и как он работает?</button>
+<div class="content">
+  <p>Подбор туров - это удобная и быстрая система для подбора достопримечательности конкретно под вас и ваши критерии . Наш Искусственный Интеллект осуществляет подбор, фильтруя ваши запросы под список достопримечательностей в базе данных.</p>
+</div>
+<hr>
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+  
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+  </script>
+      </div>
+    </section>
+    <footer>
+      <div class="footer-inner">
+        <div class="column first">
+            <li class="footer-item"><a style=" list-style: none;" href="https://instagram.com/_trusttravel?igshid=Nzg3NjI1NGI=" class="footer-link">_trusttravel <i class="fa-brands fa-instagram"></i></a></li>
+            <div class="email">trusttravel.contact@gmail.com <i class="fa-regular fa-envelope"></i></div>
+            <div class="phone-footer">+7 705 994 4155 <i class="fa-solid fa-phone"></i></div>
+        </div>
+        <div class="column second">
+          <div class="footer-title"><p>TrusTTravel</p></div>
+          <div class="footer-subtitle"><p>больше, чем просто гид</p></div>
+        </div>
+        <div class="column third">
+          <ul class="footer-list">
+            <li class="footer-item"><a href="#commp" class="footer-link">О нас</a></li>
+            <li style="padding:20px 0;" class="footer-item">
+              <a  href="{% url 'tours' %}" class="footer-link">Достопримечательности</a>
+            </li>
+            <li class="footer-item">
+              <a href="#game" class="footer-link">Геймификация</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

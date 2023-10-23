@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Comfortaa:wght@300&family=Kanit:wght@300&family=Montserrat+Alternates:ital,wght@1,200&family=Montserrat:ital,wght@0,200;0,300;0,400;1,200&family=Mulish:wght@300&family=Nunito+Sans:ital,wght@1,200&family=Saira:wght@300&family=Work+Sans:wght@300&display=swap");
+@import url("https://fonts.cdnfonts.com/css/bebas-neue");
+@import url("https://fonts.cdnfonts.com/css/montserrat");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: 1s ease all;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  height: 900px;
+}
+
+img {
+  width: 100%;
+}
+
+.container {
+  padding: 0 380px 75px 380px;
+  margin: 0 auto;
+}
+
+button {
+  font-weight: 700;
+  font-family: "Monserrat", sans-serif;
+
+  font-size: 18px;
+}
+
+header {
+  position: relative;
+  background: url("./img/пузико.png") no-repeat center top / cover;
+}
+
+header > background-image {
+  box-shadow: 0 3px 2px 2px #fff;
+}
+
+.navigation {
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list {
+  display: flex;
+  column-gap: 35px;
+  align-items: center;
+  list-style: none;
+}
+
+.logo {
+  width: 80px;
+}
+
+.text-logo {
+  margin: 0px 65px 0 10px;
+  width: 150px;
+}
+
+.item-link {
+  text-decoration: none;
+  font-family: "Montserrat";
+  color: black;
+  font-size: 15px;
+}
+
+.phone {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-blue {
+  color: #2689e4;
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 12.44px;
+}
+
+.numbers {
+  font-family: "Montserrat";
+  font-size: 17px;
+}
+
+.numbers i {
+  padding-right: 5px;
+}
+
+.welcome {
+  position: relative;
+}
+
+.welcome-inner {
+  padding: 90px 0 250px;
+  text-align: center;
+  position: relative;
+}
+
+/* .welcome-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 175px;
+  line-height: 200px;
+  background: linear-gradient(
+      273.08deg,
+      black 18.65%,
+      rgba(214, 214, 214, 0.4) 48.28%,
+      black 93.32%
+    ),
+    #434343;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #29292966;
+}
+
+.welcome-subtitle {
+  font-family: Montserrat;
+  font-size: x-large;
+} */
+
+.registration-text {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  width: 90%;
+  text-align: center;
+}
+
+.registration-button {
+  width: 100%;
+}
+
+.buttonn {
+  color: #fff;
+  width: 50%;
+  height: 48px;
+  background: linear-gradient(
+      98.94deg,
+      rgba(2, 160, 199, 0.4) -4.23%,
+      rgba(255, 255, 255, 0.4) 51.39%,
+      rgba(2, 160, 199, 0.4) 103.65%
+    ),
+    #00a9d2;
+  border: none;
+  margin: 10px 30px;
+  border-radius: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  /* font-style: normal; */
+  /* font-size: 18px; */
+  /* line-height: 22px; */
+  text-transform: lowercase;
+}
+
+.buttonnn {
+  color: #fff;
+  /* font-size: medium; */
+  width: 23%;
+  height: 48px;
+  background: linear-gradient(
+      98.94deg,
+      rgba(2, 160, 199, 0.4) -4.23%,
+      rgba(255, 255, 255, 0.4) 51.39%,
+      rgba(2, 160, 199, 0.4) 103.65%
+    ),
+    #00a9d2;
+  border: none;
+  /* padding: 20px 30px; */
+  margin: 18px;
+  border-radius: 10px;
+  font-family: "Montserrat", sans-serif;
+  /* box-shadow: 0px 5px 0px #0e9bbd; */
+  font-weight: 600;
+  text-transform: lowercase;
+}
+
+.registration-input {
+  margin: 2rem;
+  border-color: rgb(99, 208, 255);
+}
+input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-color: rgb(96, 186, 247);
+  height: 3rem;
+  width: 600px;
+  border-radius: 10px;
+  padding: 20px 30px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.registration {
+  margin: 0 0 0 4.3rem;
+}
